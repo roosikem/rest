@@ -1,0 +1,105 @@
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Environmental Emission Evaluator - Search Chemical Inventory List</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+<script src= "${pageContext.request.contextPath}/resources/js/lib/angular.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/demo.js"></script>
+<script type="text/javascript">
+
+</script>
+</head>
+
+
+<body ng-app="demoModule">
+
+<div class="wrapperContiner">
+  <div class="midContainer"> 
+    
+     <div ng-controller="demoCtrl">
+	      <input type="text" ng-model="name" placeholder="Enter Name">
+	      <input type="number" ng-model="age" placeholder="Enter Age">
+	      <button ng-click="submit()">OK</button>
+	    
+		    <!--Child div-->
+		    <div ng-controller="secondCtrl">
+		      <h3 ng-show="info"> My name is {{myName}},{{myAge}} years old. </h3>
+		    </div>
+ 	 </div>
+ 	 
+ 	 <div ng-controller="ParentController">
+	    <br /><p>{{foo}}</p>
+	    
+	    <br /><div ng-controller="ChildController">
+	             <button ng-click="onButtonClick()">{{buttonTitle}}</button>
+            </div>
+	</div>
+	
+	
+<div ng-controller="AppCtrl">
+   <div class="row">
+	
+      <div class="col-md-4">
+  		<h3>Controller</h3>
+		<input type="text" ng-model="user" class="form-control">
+		<!-- <input type="text" ng-model="data.user" class="form-control"> -->
+
+	  </div>
+
+	  
+	  <div class="col-md-4">
+	  	<h3>Directives</h3>
+
+	  	<h6>1. Scope: false or not defined</h6>
+		<profile-panel1></profile-panel1>
+			
+		<h6>2. scope: true </h6>
+		<profile-panel2 ></profile-panel2>
+			
+		<h6>3. Isolated scope -> {}</h6>
+		<profile-panel3></profile-panel3>
+
+		<h6>4. Isolated scope -> prop: "="</h6>
+		<profile-panel4 name="user"></profile-panel4>
+
+		<h6>5. Isolated scope -> prop: "@"</h6>
+		<profile-panel5 name="{{user}}"></profile-panel5>
+
+      </div>
+
+  	<div class="col-md-2"></div>
+  </div>
+    
+</div>
+
+<div ng-controller="MyCtrl">
+    <ul ng-repeat="user in users">
+      <li>{{user}}</li>
+    </ul>
+    <div class="nested" ng-controller="AnotherCtrl">
+      First user: {{firstUser}}
+    </div>
+</div>
+
+
+<div ng-controller="QuestionsStatusController1">
+    <h1>{{aval}}</h1>
+</div>
+<div  ng-controller="QuestionsStatusController2">
+      <input type="text" ng-model="qval" class="form-control">
+</div>
+
+
+</div>
+</div>
+
+<script type="text/javascript">
+
+	
+</script>
+</body>
+</html>
